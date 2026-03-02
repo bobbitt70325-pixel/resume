@@ -242,7 +242,7 @@ body{
   /* ✅ 1) 縮小時把重疊量變小，而不是取消重疊 */
   :root{
     --overlap: clamp(80px, 12vw, 120px);
-    --container-width: min(70vw, 700px);
+    --container-width: min(92vw, 700px);
     --container-pad: 18px;
     --safe-gap: 18px;
     --container-shift: 0px;
@@ -250,6 +250,7 @@ body{
     --features-offset: 40px;  /*  四個一排時，往下推的距離（自己調大/小） */
   }
   .container{
+    transform: none; 
     padding: 0 var(--container-pad);
   }
 
@@ -257,6 +258,24 @@ body{
   .center-text{
     margin-top: calc(var(--overlap) * -1);
     padding-bottom: 16px;
+  }
+
+  .center-box{
+    padding: 28px 22px;                 
+    border-radius: 16px;
+    font-size: 16px;
+  }
+
+  .bg-picture{
+    height: 70vh;                        
+    min-height: 520px;                   
+    background-attachment: scroll;     
+    background-position: center top;     
+  }
+
+    .bg-picture .container{
+    padding-top: 64px;
+    align-items: flex-start;
   }
 
   .bg-video{
@@ -321,10 +340,24 @@ body{
 }
 @media (max-width:520px){
   :root{
+    --container-width: 94vw;
     --overlap: 70px;
     --safe-gap: 14px;
     --container-pad:16px;
     --features-offset: 20px; /* 手機再小一點 */
+  }
+
+  .bg-picture{
+    height: 62vh;          
+    min-height: 460px;
+    background-position: center 20%;
+  }
+
+    .bg-picture h1{
+    letter-spacing: 0.06cm; /* 手機字距略收 */
+  }
+  .bg-picture h2{
+    letter-spacing: 0.12cm;
   }
     .feature:nth-child(2n){
     border-left: none;
@@ -361,7 +394,7 @@ body{
   .center-box{
     font-size: 16px;
     padding: clamp(26px,6vw,44px);
-  }
+  }        
   .icon{
     font-size: 16px;
     margin-bottom: 22px;
