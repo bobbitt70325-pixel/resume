@@ -79,6 +79,17 @@ body {
 
 .project-header-main {
   min-width: 0;
+  position: relative;
+}
+
+.project-header-main::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 0;
+  width: 1px;
+  height: 200px; /* 控制線長 */
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .project-category {
