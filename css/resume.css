@@ -1,0 +1,577 @@
+/* ===== 全域設定 ===== */
+:root{
+/* 主色（你原本的亮藍） */
+  --accent: #00c3ff;
+
+  /* 文字層級（質感關鍵） */
+  --text-primary: rgba(255,255,255,0.92);
+  --text-secondary: rgba(255,255,255,0.72);
+  --text-tertiary: rgba(255,255,255,0.48);
+
+  /* 線條與底色 */
+  --line: rgba(255,255,255,0.22);
+  --panel: rgba(35,35,35,0.86);
+  --panel-mobile: rgba(20,20,20,0.28); /* 手機半透明看得到YT */
+  --page-width: min(1000px, 90%);
+}
+body{
+  margin: 0;
+  background: #1f1f1f; /* 深灰背景 */
+  color: #ffffff;      /* 文字白色 */
+  font-family: "微軟正黑體";
+}
+
+section{
+  position: relative;
+}
+
+.section-title{
+  color: var(--accent);
+}
+
+.navbar{
+  position: fixed;         /* 固定在畫面上 */
+  top: 0;                  /* 貼齊最上面 */
+  left: 0;
+  width:100%;
+  z-index:999;
+  background: rgba(60,70,85,0.8);
+  backdrop-filter:blur(10px);   /* 毛玻璃效果 */
+}
+
+.nav-container{
+  width:  var(--page-width);
+  margin: 0 auto;     /* 置中 */
+  padding:10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateX(var(--container-shift));
+}
+
+.nav-cat-link{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-cat{
+  width: 50px;
+  height: auto;
+  display: block;
+}
+.nav-list{
+  list-style: none;/* 移除點點 */
+  display: flex;/* 橫向排列 */
+  align-items: center;
+  gap: 40px;/* 每個選單距離 */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a{
+  color: rgba(255,255,255,0.8);
+  text-decoration:none;/* 移除底線 */
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  transition:0.3s;
+}
+
+.nav-list a:hover{
+  color: #ffffff;/* 滑過變亮 */
+}
+
+/* ===== 第一區塊:個人資訊 ===== */
+.resume-header{
+  position: relative;     /* 讓 iframe / 遮罩可以 absolute 貼齊 */
+  overflow: visible;       /* 把超出畫面的影片裁掉 */
+  background: #2a2a2a;
+  height: 60vh;;           /* 改成固定高度 */
+  min-height: 420px;       /* 避免太小 */
+  display: flex;
+  align-items: flex-end;    /* 卡片貼底 */
+  padding-bottom: 0;
+}
+
+/* 第一區塊卡片底色（桌機） */
+.resume-header .resume-container{
+  background: var(--panel);
+}
+
+.resume-bg{
+    position: absolute;
+  inset: 0;
+  overflow: hidden;   /* ✅ 只裁背景影片 */
+  z-index: 0;
+}
+
+/* 背景影片：鋪滿整個 resume-header */
+.resume-bg-yt{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;           /* 先給足寬 */
+  height: 56.25vw;        /* 16:9 比例高度 */
+  min-width: 177.77vh;    /* 反向限制，避免上下黑邊 */
+  min-height: 100vh;      /* 至少撐滿高度 */
+  transform: translate(-50%, -50%);
+  pointer-events: none;   /* 避免滑鼠點到影片 */
+  filter: brightness(0.75) contrast(1.05); /* 讓文字更清楚 */
+}
+
+/* 深色遮罩：讓文字更好讀（跟你首頁 bg-video::after 一樣） */
+.resume-header::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.8)
+  );
+}
+
+/* 卡片容器：在遮罩上層 */
+.resume-header .resume-container{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(1000px, 90%);
+  margin: 0 auto;
+  background: rgba(35,35,35,0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  transform: translateY(40%);
+  gap: 10px;
+  align-items: center;
+}
+
+/* 內容最大寬度 + 置中 */
+.resume-container{
+  width: var(--page-width);
+  margin: 0 auto;
+}
+
+/* 照片 */
+.resume-photo{
+  flex: 0 0 50%;
+  min-height:500px;                    
+  background-image: url(https://drive.google.com/thumbnail?id=1nJWlpygIyqHU5xJ5Ulo5LdwogzMYN4Tp&sz=w1400);
+  background-size: cover;             /* 填滿不變形 */
+  background-position: center;        /* 置中 */
+  background-repeat: no-repeat;       /* 不重複 */
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35); /* 稍微有質感 */
+}
+
+.resume-info{
+  flex: 1;                  /* ✅ 右邊吃掉剩下空間 */
+  padding: 28px;            /* ✅ 原本卡片 padding 移到這裡 */
+}
+
+/* 右側資訊 */
+.resume-info h1{
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;  /* 粗體 */
+  letter-spacing: 1px;
+}
+
+.resume-info h2{
+  color: #00c3ff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* 資訊清單容器 */
+.info-list{
+  margin-top: 6px;
+}
+
+/* 每一行資訊（用 class 方便做 hover 效果） */
+.info-row{
+  margin: 0;                      /* 把 p 預設 margin 清掉，改用 padding 控間距 */
+  padding: 10px 0;                /* 行距（更像範例） */
+  display: flex;                  /* 左右排一行 */
+  gap: 20px;                      /* 標題與內容間距 */
+  align-items: baseline;
+  position: relative;             /* 讓左側裝飾線定位用 */
+  border-radius: 2px;
+  transition: background .2s ease,transform .25s ease,box-shadow .25s ease;
+}
+
+/* 左側細線裝飾（滑過才出現） */
+.info-row::before{
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 999px;
+  background: #00c3ff;
+  opacity: 0;
+  transform: scaleY(0.6);
+  transition: opacity .25s ease,transform .25s ease;
+}
+
+/* hover：整行微亮 + 左線出現 */
+.info-row:hover{
+  background: rgba(255,255,255,0.04);
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.info-row:hover::before{
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* ✅ 左邊標題：淡灰 + 稍粗 + 固定寬度對齊（像範例） */
+.info-label{
+  min-width: 120px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;  /* 英文變大寫 */
+  color: var(--text-tertiary);
+}
+
+/* ✅ 右邊內容：白色、正常字重 */
+.info-value{
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  word-break: break-word; /* email 太長會自動換行 */
+  margin-left: auto;
+  text-align: right;
+}
+
+.info-link{
+  text-decoration: none;      /*拿掉底線 */
+  color: var(--text-primary);
+  transition: color .25s ease,
+  text-shadow .25s ease,
+  transform .25s ease;
+}
+
+.info-link:hover{
+  color: #00c3ff;
+  text-shadow: 0 0 10px rgba(0,195,255,0.28);
+}
+
+
+/* 個人資訊每一行 */
+.resume-info p{
+  margin: 8px 0;              /* 每行之間距離 */
+  display: flex;              /* 讓左右排成一行 */
+  gap: 10px;                  /* 標題與內容間距 */
+  align-items: baseline;      /* 讓文字對齊 */
+}
+
+/* ===== 第二區塊:關於我 ===== */
+.resume-about{
+  padding: 100px 0 120px;
+  padding-top: 250px;
+  position: relative;
+}
+
+.resume-about::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1000px, 90%);
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.resume-about p{
+  margin: 0 0 10px;
+  line-height: 2.05;
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+.section-title{
+  color: #00c3ff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* ===== 第三區塊：工作經驗(時間軸) ===== */
+.resume-experience{
+  padding: 90px 0;
+  position: relative;
+}
+
+/* 漸層科技分隔線 */
+.resume-experience::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1000px, 90%);
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,195,255,0.4),
+    rgba(0,195,255,0.9),
+    rgba(0,195,255,0.4),
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(0,195,255,0.4);
+}
+.timeline{                               /*  整個時間軸容器 */
+  --year-col: 180px;                     /* 年份欄寬 */
+  --line-col: 60px;                      /* 點/線欄寬 */
+  --col-gap: 40px;
+  margin-top: 30px;                      /*  標題和時間軸的距離 */
+  display: flex;                         /*  讓多筆項目可以上下堆疊 */
+  flex-direction: column;                /*  直向排列 */
+  gap: 60px;                             /*  每筆經歷之間的距離(跟範例很像) */
+  position: relative;
+}
+
+.timeline::before{
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: calc(var(--year-col) + var(--col-gap) + (var(--line-col) / 2));         /*  年份欄寬 180px */
+  width: 2px;
+  background: var(--line);
+  transform: none;
+}
+
+/* 單筆：三欄 grid，年份/線點/內容 */
+.timeline-item{                                               /*  單筆經歷 */
+  display: grid;                                              /*  用 grid 做三欄 */
+  grid-template-columns: var(--year-col) var(--line-col) 1fr; /*  左(年份) 中(線) 右(內容) */
+  column-gap: var(--col-gap); 
+  column-gap: 40px;                                           /*  欄位間距 */
+  align-items: start;                                         /*  內容對齊上方 */
+  position: relative;
+}
+
+/* 左欄：年份 */
+.timeline-year{                          /*  年份文字 */
+  color: var(--text-secondary);          /*  白字但不要太刺眼 */
+  font-size: 14px;                       /*  跟範例大小相近 */
+  letter-spacing: 0.02em;                /*  微微拉開字距更有質感 */
+  padding-top: 8px;                      /*  讓年份跟右邊標題對齊 */
+}
+
+/* 圓點 */
+.timeline-dot{                             /*  線上的圓點 */
+  width: 10px;                             /*  圓點大小 */
+  height: 10px;                            /*  圓點大小 */
+  border-radius: 50%;                      /*  變成圓形 */
+  background: #ffffff;                   /*  白色圓點 */
+  margin-top: 10px;                        /*  點的位置(跟上方對齊) */
+  box-shadow: 0 0 0 6px rgba(0,0,0,0.15);/*  外圍微暗，讓點更立體 */
+  position: relative;                      /*  確保點在最上層 */
+  z-index: 1;                              /*  壓在直線上面 */
+  justify-self: center;                    /*  點在 60px 欄的正中 */
+  margin-top: 12px;                        /* 控制點跟標題對齊 */
+  justify-self: center;                    /* 第二欄置中 */
+}
+
+/* 右欄：內容 */
+.timeline-content{                       /*  右邊文字區 */
+  max-width: 620px;                      /*  不要太寬，像範例右邊收斂 */
+}
+
+/* 右欄標題 */
+.timeline-title{                         /*  公司/學校那行(粗) */
+  margin: 0;                             /*  去掉 h3 預設 margin */
+  font-size: 18px;                       /*  文字大小 */
+  font-weight: 700;                      /*  文字粗體 */
+  color: var(--text-primary);       /*  近白色 */
+  line-height: 1.6;                      /*  行高舒適 */
+}
+
+/* 右欄內文 */
+.timeline-text{                          /*  描述文字 */
+  margin: 10px 0 0;                      /*  和標題的距離 */
+  font-size: 14px;                       /*  文字大小 */
+  line-height: 2;                        /*  跟你整體風格一致 */
+  color: var(--text-secondary);          /*  灰白，層級更清楚 */
+}
+/* ===== 第四區塊：頁尾 ===== */
+.resume-footer{
+  position: relative;
+  padding: 50px 0 80px;
+  text-align: center;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.05em;
+}
+
+/* 上方極淡分隔線 */
+.resume-footer::before{
+  animation: subtleGlow 4s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1000px, 90%);
+  height: 1px;
+  box-shadow: 0 0 8px rgba(0,195,255,0.15);
+  background: linear-gradient(
+  to right,
+  transparent,
+  rgba(0,195,255,0.25),
+  rgba(255,255,255,0.15),
+  rgba(0,195,255,0.25),
+  transparent
+);
+}
+@keyframes subtleGlow{
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+/* 名字 */
+.footer-name{
+  position: relative;
+  display: inline-block;
+  transition: color .3s ease;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-name::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:1px;
+  background:#00c3ff;
+  transition:width .4s ease;
+}
+
+.footer-name:hover{
+  color:#fff;
+}
+
+.footer-name:hover::after{
+  width:100%;
+}
+
+/* 版權 */
+.footer-copy{
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 900px){
+  :root{
+    --page-width: min(1000px, 90%);
+  }
+
+  .nav-container{
+    width: var(--page-width);
+    padding: 10px 0;
+    transform: none;
+  }
+
+  .resume-header{
+    padding: 90px 0;
+    min-height: 80vh;
+  }
+
+  .resume-header .resume-container{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+    transform: translateY(15%);
+    background: var(--panel-mobile);
+  }
+
+  .resume-photo{
+    width: min(420px, 100%);
+    height: 320px;
+    min-height: 0;
+    flex: none;
+  }
+
+  .resume-info{
+    padding: 22px;
+  }
+
+  /* 影片用滿整個區塊 */
+  .resume-bg-yt{
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .resume-container{
+    width: var(--page-width);
+  }
+
+  .info-row::before{
+    left: 0; /* 手機上別往外跑 */
+  }
+
+  .info-row{
+    padding-left: 14px; /* 給左線留空間 */
+  }
+
+  .resume-about{
+    padding-top: 50px;
+  }
+
+  .timeline{                             /*  手機縮小間距 */
+    --year-col: 0px;                     /* 手機不需要年份欄 */
+    --line-col: 60px;
+    gap: 36px;                           /*  每筆不要隔太大 */
+  }
+
+   /* ✅ 手機線：第二欄正中 */
+  .timeline::before{
+    left: calc(var(--line-col) / 2);
+  }
+
+  .timeline-item{                               /*  手機改成兩欄 */
+    grid-template-columns: var(--line-col) 1fr; /* 線點欄 + 內容欄 */
+    column-gap: 18px;                           /*  欄位距離小一點 */
+  }
+
+  .timeline-year{                        /*  年份移到右欄上方 */
+    grid-column: 2;                      /*  放在第二欄(內容欄) */
+    padding-top: 0;                      /*  不用再推 */
+    margin-bottom: 6px;                  /*  年份和標題的距離 */
+    color: rgba(0,195,255,0.9);        /*  手機版年份做亮一點更清楚 */
+  }
+
+    /*  手機版整條線：改放在第一欄中間 */
+  .timeline::before{
+    left: 30px;          /* 60px 欄位的中間 */
+    transform: none;
+  }
+
+  .timeline-content{                     /*  內容區寬度放開 */
+    max-width: 100%;                     /*  手機不限制寬 */
+  }
+}

@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "微軟正黑體", sans-serif;
+}
+
+:root{
+    --container-width: min(90vw,1600px);
+    --container-shift:-32px;
+    --overlap: clamp(200px,12vw,220px);
+    --features-offset-desktop: 120px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+.navbar{
+  position: fixed;         /* 固定在畫面上 */
+  top: 0;                  /* 貼齊最上面 */
+  left: 0;
+  width:100%;
+  z-index:999;
+}
+
+.nav-container{
+  width: var(--container-width);
+  margin: 0 auto;     /* 置中 */
+  padding:30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transform: translateX(var(--container-shift));
+}
+
+.nav-list{
+  list-style: none;/* 移除點點 */
+  display: flex;/* 橫向排列 */
+  align-items: center;
+  gap: 40px;/* 每個選單距離 */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a{
+  color: rgba(255,255,255,0.8);
+  text-decoration:none;/* 移除底線 */
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  transition:0.3s;
+}
+
+.nav-list a:hover{
+  color: #ffffff;/* 滑過變亮 */
+}
+/* 外層 */
+.motion-wrapper {
+  position: relative;
+}
+
+/* 每一段都像一張滿版卡片，往上疊 */
+.panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 讓後面的 section 疊到前面上面 */
+.panel:nth-child(1) { z-index: 1; }
+.panel:nth-child(2) { z-index: 2; }
+.panel:nth-child(3) { z-index: 3; }
+.panel:nth-child(4) { z-index: 4; }
+.panel:nth-child(5) { z-index: 5; }
+.panel:nth-child(6) { z-index: 6; }
+
+.video-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* 背景影片 */
+.video-bg iframe{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.77vh; /* 16:9 比例 */
+  height: 56.25vw;      /* 16:9 */
+  min-width: 177.78vh;  /* 補足超寬螢幕 */
+  min-height: 100vh;    /* 補足超高螢幕 */
+  transform: translate(-50%, -50%) scale(1.55);
+  pointer-events: none; /* 不可點擊（很重要） */
+}
+
+/* 遮罩 */
+.panel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;   /* 水平置中 */
+  align-items: center;     /* 貼近下方 */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15)
+  );
+}
+
+/* 內容 */
+.panel-content {
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.panel-title {
+  font-size: clamp(40px, 6vw, 78px);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.panel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  padding: 14px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: 0.3s ease;
+}
+
+.panel-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .panel-content {
+    padding: 24px;
+  }
+
+  .panel-title {
+    font-size: 38px;
+  }
+  :root{
+    --overlap: clamp(80px, 12vw, 120px);
+    --container-width: min(92vw, 700px);
+    --container-pad: 18px;
+    --safe-gap: 18px;
+    --container-shift: 0px;
+    --features-top-gap: 40px; /*  兩個一排時，往下推的距離（自己調大/小） */
+    --features-offset: 40px;  /*  四個一排時，往下推的距離（自己調大/小） */
+  }
+}

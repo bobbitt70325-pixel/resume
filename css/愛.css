@@ -1,0 +1,343 @@
+/* =========================
+   1. 全域基本設定
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "微軟正黑體", sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+/* =========================
+   2. 上方固定導覽列
+   ========================= */
+.detail-header {
+  width: 100%;
+  padding: 24px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.detail-header-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  opacity: 0.85;
+  transition: 0.3s ease;
+}
+
+.back-link:hover {
+  opacity: 1;
+}
+
+.detail-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.detail-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.detail-nav a:hover {
+  color: #fff;
+}
+
+/* =========================
+   3. 主內容區
+   ========================= */
+.project-detail {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 130px 40px 50px;
+}
+
+/* =========================
+   4. 上方專案文字區
+   第一排：左標題 / 右資訊
+   第二排：描述與影片同寬
+   ========================= */
+.project-header {
+  margin-bottom: 44px;
+}
+
+.project-header-main {
+  position: relative;
+  padding-right: 40px; /* 跟分隔線留距離 */
+}
+
+/* 中間那條細線 */
+.project-header-main::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 0;
+  width: 1px;
+  height: 200px; /* 控制線長 */
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 第一排 */
+.project-top-row {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* 直接把 project-header 本身做成第一排兩欄 */
+.project-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  column-gap: 48px;
+  row-gap: 28px;
+  align-items: start;
+}
+
+.project-header-main {
+  min-width: 0;
+}
+
+.project-category {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 14px;
+}
+
+.project-title {
+  font-size: clamp(34px, 4vw, 64px);
+  line-height: 1.05;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+
+.project-subtitle {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+}
+
+/* 右側資訊欄，跟標題同一排 */
+.project-side-info {
+  padding-top: 10px;
+}
+
+.side-info-block + .side-info-block {
+  margin-top: 18px;
+}
+
+.side-info-block h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.side-info-block p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* 第二排描述，寬度跟下面影片區一致 */
+.project-desc-row {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.project-description {
+  width: 100%;
+  max-width: none;
+  font-size: 16px;
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* =========================
+   5. 下方雙影片區
+   ========================= */
+.project-media.horizontal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: transform 0.35s ease;
+}
+
+.video-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  padding: 8px 14px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+}
+
+.video-frame iframe,
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+}
+
+/* =========================
+   6. 下方其他作品縮圖
+   ========================= */
+.more-projects {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.thumb-card {
+  width: 220px;
+  aspect-ratio: 16 / 10;
+  display: block;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+}
+
+.thumb-card:hover,
+.thumb-card.active {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+   7. 平板版
+   ========================= */
+@media (max-width: 1100px) {
+  .project-header {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .project-side-info {
+    padding-top: 0;
+  }
+
+  .project-media.horizontal {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   8. 手機版
+   ========================= */
+@media (max-width: 768px) {
+  .detail-header {
+    padding: 18px 20px;
+  }
+
+  .detail-header-inner {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .detail-nav {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .project-detail {
+    padding: 120px 20px 30px;
+  }
+
+  .project-title {
+    font-size: 34px;
+  }
+
+  .project-header-main::after {
+    display: none;
+  }
+
+  .project-side-info {
+    padding-left: 0;
+  }
+
+
+  .project-description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .project-media.horizontal {
+    gap: 16px;
+  }
+
+  .video-frame {
+    border-radius: 14px;
+  }
+
+  .more-projects {
+    padding: 0 20px 30px;
+    gap: 12px;
+    overflow-x: auto;
+  }
+
+  .thumb-card {
+    width: 180px;
+    flex-shrink: 0;
+  }
+}

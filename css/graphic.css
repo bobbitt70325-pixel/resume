@@ -1,0 +1,166 @@
+*{
+  margin: 0; /* 清除預設外距 */
+  padding: 0; /* 清除預設內距 */
+  box-sizing: border-box; /* 讓寬高計算更直覺 */
+  font-family: "微軟正黑體"; /* 字體 */
+}
+
+body{
+  background: #000; /* 整頁黑底 */
+  color: #fff; /* 文字白色 */
+  padding-top: 60px; /* 留空間給固定 navbar */
+}
+
+.navbar{
+  position: fixed; /* 固定在最上面 */
+  top: 0; /* 貼齊上方 */
+  left: 0; /* 貼齊左邊 */
+  width: 100%; /* 滿版 */
+  z-index: 999; /* 壓在最上層 */
+  background: rgba(60,70,85,0.8); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 毛玻璃效果 */
+}
+
+.nav-container{
+  width: min(90vw, 1100px); /* 最大寬度 */
+  margin: 0 auto; /* 置中 */
+  padding: 10px 0; /* 上下間距 */
+  display: flex; /* 橫向排列 */
+  align-items: center; /* 垂直置中 */
+  justify-content: space-between; /* 左右分開 */
+}
+
+.nav-cat{
+  width: 50px; /* 貓咪寬度 */
+  display: block; /* 避免圖片下方空隙 */
+}
+
+.nav-list{
+  list-style: none; /* 移除點點 */
+  display: flex; /* 橫向排列 */
+  gap: 40px; /* 間距 */
+}
+
+.nav-list a{
+  color: rgba(255,255,255,0.8); /* 文字顏色 */
+  text-decoration: none; /* 移除底線 */
+}
+
+.nav-list a:hover{
+  color: #fff; /* hover 變亮 */
+}
+
+.hero{
+  min-height: 70vh; /* 首屏至少佔畫面 70% */
+  background-image: url("../img/motion-bg.jpg"); /* 你的背景圖 */
+  background-size: cover; /* 圖片填滿 */
+  background-position: center; /* 圖片置中 */
+  background-attachment: fixed; /* 視差固定背景 */
+}
+
+.hero-overlay{
+  min-height: 70vh; /* 跟 hero 一樣高 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.7)); /* 深色遮罩 */
+  display: flex; /* 使用 flex */
+  align-items: center; /* 垂直置中 */
+}
+
+.hero-content{
+  width: min(90vw, 1100px); /* 內容寬度 */
+  margin: 0 auto; /* 置中 */
+}
+
+.hero-subtitle{
+  color: rgba(255,255,255,0.7); /* 小標顏色淡一點 */
+  letter-spacing: 0.2em; /* 字距拉開 */
+  margin-bottom: 12px; /* 和標題距離 */
+}
+
+.hero-content h1{
+  font-size: clamp(38px, 6vw, 72px); /* 自適應標題大小 */
+  margin-bottom: 18px; /* 下方留白 */
+}
+
+.hero-text{
+  max-width: 600px; /* 文字不要太長 */
+  line-height: 1.8; /* 行高 */
+  color: rgba(255,255,255,0.82); /* 淡白色 */
+}
+
+.works-section{
+  padding: 80px 0; /* 上下留白 */
+}
+
+.works-grid{
+  width: min(90vw, 1100px); /* 內容寬度 */
+  margin: 0 auto; /* 置中 */
+  display: grid; /* grid 排列 */
+  grid-template-columns: repeat(2, 1fr); /* 一排兩個 */
+  gap: 32px; /* 卡片間距 */
+}
+
+.work-card{
+  background: rgba(255,255,255,0.04); /* 卡片底色 */
+  border: 1px solid rgba(255,255,255,0.08); /* 淡框線 */
+  border-radius: 18px; /* 圓角 */
+  overflow: hidden; /* 讓內容不要超出圓角 */
+  backdrop-filter: blur(6px); /* 微玻璃感 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 動畫 */
+}
+
+.work-card:hover{
+  transform: translateY(-6px); /* 滑過上浮 */
+  box-shadow: 0 14px 30px rgba(0,0,0,0.28); /* 陰影 */
+}
+
+.video-wrap{
+  position: relative; /* 給 iframe 定位用 */
+  width: 100%; /* 滿版 */
+  padding-top: 56.25%; /* 16:9 比例 */
+}
+
+.video-wrap iframe{
+  position: absolute; /* 壓進容器 */
+  top: 0; /* 貼齊上方 */
+  left: 0; /* 貼齊左邊 */
+  width: 100%; /* 撐滿寬 */
+  height: 100%; /* 撐滿高 */
+}
+
+.work-info{
+  padding: 22px; /* 內距 */
+}
+
+.work-info h2{
+  font-size: 22px; /* 標題大小 */
+  margin-bottom: 10px; /* 下方距離 */
+}
+
+.work-info p{
+  color: rgba(255,255,255,0.75); /* 描述文字淡一點 */
+  line-height: 1.8; /* 行高 */
+}
+
+@media (max-width: 900px){
+  .works-grid{
+    grid-template-columns: 1fr; /* 平板以下改成一欄 */
+  }
+
+  .hero{
+    background-attachment: scroll; /* 手機和平板避免 fixed 出問題 */
+  }
+}
+
+@media (max-width: 520px){
+  .nav-list{
+    gap: 18px; /* 手機縮小間距 */
+  }
+
+  .hero-content h1{
+    font-size: 36px; /* 手機標題不要太大 */
+  }
+
+  .works-section{
+    padding: 56px 0; /* 手機縮小留白 */
+  }
+}
