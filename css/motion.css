@@ -79,6 +79,7 @@ body {
 .panel:nth-child(4) { z-index: 4; }
 .panel:nth-child(5) { z-index: 5; }
 .panel:nth-child(6) { z-index: 6; }
+.panel:nth-child(7) { z-index: 7; }
 
 .video-bg{
   position: absolute;
