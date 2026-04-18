@@ -230,14 +230,27 @@ body {
   }
 
   .detail-header-inner {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .back-link {
+    font-size: 14px;
+    flex-shrink: 0;
   }
 
   .detail-nav {
-    gap: 16px;
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 10px;
+  }
+
+  .detail-nav a {
+    font-size: 14px;
   }
 
   .project-detail {

@@ -290,54 +290,60 @@ body {
   }
 
   .detail-header-inner {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .back-link {
+    font-size: 14px;
+    flex-shrink: 0;
   }
 
   .detail-nav {
-    gap: 16px;
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 10px;
+  }
+
+  .detail-nav a {
+    font-size: 14px;
   }
 
   .project-detail {
     padding: 120px 20px 30px;
+    gap: 36px;
   }
 
   .project-title {
-    font-size: 34px;
+    font-size: 38px;
   }
 
-  .project-header-main::after {
-    display: none;
+  .project-subtitle {
+    margin-bottom: 16px;
   }
-
-  .project-side-info {
-    padding-left: 0;
-  }
-
 
   .project-description {
     font-size: 15px;
     line-height: 1.8;
   }
 
-  .project-media.horizontal {
-    gap: 16px;
-  }
-
-  .video-frame {
-    border-radius: 14px;
+  .video-label {
+    top: 12px;
+    left: 12px;
+    padding: 7px 12px;
+    font-size: 11px;
   }
 
   .more-projects {
     padding: 0 20px 30px;
     gap: 12px;
-    overflow-x: auto;
   }
 
   .thumb-card {
     width: 180px;
-    flex-shrink: 0;
   }
 }
