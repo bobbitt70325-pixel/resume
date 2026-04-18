@@ -231,11 +231,59 @@ body {
    6. 下方其他作品縮圖
    ========================= */
 .more-projects {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+
+.more-projects-wrapper {
+  position: relative;
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 40px 40px;
+}
+
+.more-projects::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* 左右位置 */
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
 }
 
 .thumb-card {
@@ -247,6 +295,7 @@ body {
   transition: 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 5px;
+  flex-shrink: 0;
 }
 
 .thumb-card:hover,
