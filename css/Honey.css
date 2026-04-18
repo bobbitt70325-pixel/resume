@@ -130,7 +130,7 @@ body {
 
 .project-desc-row {
   grid-column: 1 / -1;
-  max-width: 1000px;
+  max-width: 1300px;
 }
 
 .project-description {
