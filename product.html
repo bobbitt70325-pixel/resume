@@ -1,95 +1,51 @@
-<!DOCTYPE html> <!-- 宣告這是 HTML5 文件 -->
-<html lang="zh-TW"> <!-- 設定網頁語言為繁體中文 -->
+<!DOCTYPE html>
+<html lang="zh-TW">
   <head>
-    <meta charset="UTF-8" /> <!-- 避免中文亂碼 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 手機顯示正常 -->
-    <title>動態視覺建構</title> <!-- 瀏覽器分頁名稱 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>品牌與平面設計</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       referrerpolicy="no-referrer"
-    /> <!-- 載入 icon 圖示庫 -->
-    <link rel="stylesheet" href="css/product.css" /> <!-- 載入這一頁專用 CSS -->
+    />
+    <link rel="stylesheet" href="css/product.css" />
   </head>
 
   <body>
-    <nav class="navbar"> <!-- 導覽列 -->
-      <div class="nav-container"> <!-- 導覽列內容寬度容器 -->
-        <a href="index.html" class="nav-cat-link"> <!-- 點貓回首頁 -->
-          <img src="img/藍貓.gif" alt="走路中的貓" class="nav-cat" /> <!-- 貓咪圖 -->
+    <!-- 固定導覽列 -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-cat-link">
+          <img src="img/藍貓.gif" alt="走路中的貓" class="nav-cat" />
         </a>
 
-        <ul class="nav-list"> <!-- 導覽選單 -->
-          <li><a href="index.html">首頁</a></li> <!-- 回首頁 -->
-          <li><a href="resume.html">履歷</a></li> <!-- 履歷頁 -->
-          <li><a href="index.html#project">專案</a></li> <!-- 回首頁專案區 -->
-          <li><a href="contact.html">聯絡我</a></li> <!-- 聯絡頁 -->
+        <ul class="nav-list">
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="resume.html">履歷</a></li>
+          <li><a href="index.html#project">專案</a></li>
+          <li><a href="contact.html">聯絡我</a></li>
         </ul>
       </div>
     </nav>
 
-    <header class="hero"> <!-- 首屏視覺區 -->
-      <div class="hero-overlay"> <!-- 壓在背景上的深色遮罩 -->
-        <div class="hero-content"> <!-- 文字容器 -->
-          <p class="hero-subtitle">Motion Design</p> <!-- 小標 -->
-          <h1>動態視覺建構</h1> <!-- 主標題 -->
-          <p class="hero-text">從平面構圖延伸到立體情境、動畫節奏與視覺敘事。</p> <!-- 說明文字 -->
+    <!-- 首屏 -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <p class="hero-subtitle">Graphic Design</p>
+          <h1>產品視覺設計</h1>
+          <p class="hero-text">
+            結合品牌定位與視覺策略，打造具辨識度的產品呈現。
+          </p>
+
+          <div class="fun-alert">
+            <i class="fa-solid fa-fish"></i>
+            <span>金魚游得有點慢，網站還沒長出來。</span>
+          </div>
         </div>
       </div>
     </header>
-
-    <main class="works-section"> <!-- 作品主區 -->
-      <div class="works-grid"> <!-- 影片卡片排列容器 -->
-
-        <article class="work-card"> <!-- 第一支影片卡片 -->
-          <div class="video-wrap"> <!-- 讓 iframe 維持比例 -->
-            <iframe
-              src="https://www.youtube.com/embed/影片ID1"
-              title="作品影片1"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe> <!-- 嵌入 YouTube 影片 -->
-          </div>
-          <div class="work-info"> <!-- 影片下方說明區 -->
-            <h2>作品名稱 01</h2> <!-- 作品標題 -->
-            <p>這支作品可以寫：主題、用途、使用軟體、動畫方向。</p> <!-- 作品描述 -->
-          </div>
-        </article>
-
-        <article class="work-card"> <!-- 第二支影片卡片 -->
-          <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/影片ID2"
-              title="作品影片2"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="work-info">
-            <h2>作品名稱 02</h2>
-            <p>這裡可以寫這支影片的功能，例如：品牌形象動畫、活動主視覺延伸。</p>
-          </div>
-        </article>
-
-        <article class="work-card"> <!-- 第三支影片卡片 -->
-          <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/影片ID3"
-              title="作品影片3"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="work-info">
-            <h2>作品名稱 03</h2>
-            <p>這裡可以補充：片長、定位、目標受眾、視覺特色。</p>
-          </div>
-        </article>
-
-      </div>
-    </main>
   </body>
 </html>
