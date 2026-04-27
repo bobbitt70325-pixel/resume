@@ -1,128 +1,201 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"微軟正黑體",sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"微軟正黑體", sans-serif;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-background:#000;
-color:#fff;
-padding-top:72px;
+  background:#000;
+  color:#fff;
+  padding-top:72px;
 }
 
 
-/* 導覽 */
+/* =====================
+   導覽列
+===================== */
 .navbar{
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-background:rgba(60,70,85,.78);
-backdrop-filter:blur(12px);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  background:rgba(60,70,85,.78);
+  backdrop-filter:blur(12px);
 }
 
 .nav-container{
-width:min(90vw,1180px);
-margin:auto;
-padding:12px 0;
+  width:min(90vw,1180px);
+  margin:auto;
+  padding:12px 0;
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .nav-cat{
-width:46px;
+  width:46px;
+  display:block;
 }
 
 .nav-list{
-display:flex;
-gap:36px;
-list-style:none;
+  display:flex;
+  gap:36px;
+  list-style:none;
 }
 
 .nav-list a{
-text-decoration:none;
-color:rgba(255,255,255,.82);
+  text-decoration:none;
+  color:rgba(255,255,255,.82);
 }
 
 
-
-/* Hero */
+/* =====================
+   首屏 Hero
+===================== */
 .hero{
-  height: 30vh;
-  min-height:400px;
+  position:relative;
+  height:65vh;
+  min-height:560px;
+  overflow:hidden;
+
   display:flex;
   align-items:center;
 }
 
-.hero-overlay { 
-  width: 100%;
-  height: 100%; 
-  background: linear-gradient( to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.72) ); display: flex; align-items: center; 
+/* YouTube 背景影片 */
+.hero-video{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
 }
 
+/* 背景影片本體 */
+.bg-yt{
+  position:absolute;
+  top:50%;
+  left:50%;
+
+  width:130vw;
+  height:73vw;
+  min-width:220vh;
+  min-height:120vh;
+
+  transform:translate(-50%,-50%) scale(1.18);
+  border:0;
+  pointer-events:none;
+}
+
+/* 黑色遮罩 */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,.9) 0%,
+      rgba(0,0,0,.72) 38%,
+      rgba(0,0,0,.28) 72%,
+      rgba(0,0,0,.55) 100%
+    );
+}
+
+/* 文字內容 */
 .hero-content{
-width:min(90vw,1180px);
-margin:auto;
+  position:relative;
+  z-index:2;
+  width:min(90vw,1180px);
+  margin:auto;
 }
 
 .hero-subtitle{
-letter-spacing:.2em;
-opacity:.7;
-margin-bottom:14px;
+  letter-spacing:.2em;
+  opacity:.7;
+  margin-bottom:14px;
 }
 
 .hero h1{
-font-size:clamp(48px,7vw,86px);
-margin-bottom:20px;
+  font-size:clamp(48px,7vw,86px);
+  margin-bottom:20px;
+  line-height:1.1;
 }
 
 .hero-text{
-max-width:680px;
-line-height:1.8;
-opacity:.82;
+  max-width:680px;
+  line-height:1.8;
+  opacity:.82;
 }
 
 
-
-/* 格子牆 */
+/* =====================
+   平面作品格子牆
+===================== */
 .graphic-gallery{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
 }
 
 .gallery-item{
-aspect-ratio:1/1;
-overflow:hidden;
-background:#111;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:#111;
 }
 
 .gallery-item img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 
-/* 平板 */
+/* =====================
+   平板
+===================== */
 @media(max-width:900px){
-.graphic-gallery{
-grid-template-columns:repeat(2,1fr);
-}
+  .graphic-gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    min-height:500px;
+  }
 }
 
 
-/* 手機 */
+/* =====================
+   手機
+===================== */
 @media(max-width:520px){
-.graphic-gallery{
-grid-template-columns:1fr;
-}
+  body{
+    padding-top:68px;
+  }
+
+  .nav-list{
+    gap:18px;
+  }
+
+  .hero{
+    height:70vh;
+    min-height:520px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .graphic-gallery{
+    grid-template-columns:1fr;
+  }
 }
