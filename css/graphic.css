@@ -10,192 +10,161 @@ html{
 }
 
 body{
-  background:#000;
-  color:#fff;
-  padding-top:72px;
+  background: #000; /* 整頁黑底 */
+  color: #fff; /* 文字白色 */
+  padding-top: 60px; /* 留空間給固定 navbar */
 }
 
-
-/* =====================
-   導覽列
-===================== */
 .navbar{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:999;
-  background:rgba(60,70,85,.78);
-  backdrop-filter:blur(12px);
+  position: fixed; /* 固定在最上面 */
+  top: 0; /* 貼齊上方 */
+  left: 0; /* 貼齊左邊 */
+  width: 100%; /* 滿版 */
+  z-index: 999; /* 壓在最上層 */
+  background: rgba(60,70,85,0.8); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 毛玻璃效果 */
 }
 
 .nav-container{
-  width:min(90vw,1180px);
-  margin:auto;
-  padding:12px 0;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  width: min(90vw, 1100px); /* 最大寬度 */
+  margin: 0 auto; /* 置中 */
+  padding: 10px 0; /* 上下間距 */
+  display: flex; /* 橫向排列 */
+  align-items: center; /* 垂直置中 */
+  justify-content: space-between; /* 左右分開 */
 }
 
 .nav-cat{
-  width:46px;
-  display:block;
+  width: 50px; /* 貓咪寬度 */
+  display: block; /* 避免圖片下方空隙 */
 }
 
 .nav-list{
-  display:flex;
-  gap:36px;
-  list-style:none;
+  list-style: none; /* 移除點點 */
+  display: flex; /* 橫向排列 */
+  gap: 40px; /* 間距 */
 }
 
 .nav-list a{
-  text-decoration:none;
-  color:rgba(255,255,255,.82);
+  color: rgba(255,255,255,0.8); /* 文字顏色 */
+  text-decoration: none; /* 移除底線 */
 }
 
+.nav-list a:hover{
+  color: #fff; /* hover 變亮 */
+}
 
-/* =====================
-   首屏 Hero
-===================== */
 .hero{
-  position:relative;
-  height:65vh;
-  min-height:560px;
-  overflow:hidden;
-
-  display:flex;
-  align-items:center;
+  min-height: 70vh; /* 首屏至少佔畫面 70% */
+  background-image: url("../img/motion-bg.jpg"); /* 你的背景圖 */
+  background-size: cover; /* 圖片填滿 */
+  background-position: center; /* 圖片置中 */
+  background-attachment: fixed; /* 視差固定背景 */
 }
 
-/* YouTube 背景影片 */
-.hero-video{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  overflow:hidden;
-}
-
-/* 背景影片本體 */
-.bg-yt{
-  position:absolute;
-  top:50%;
-  left:50%;
-
-  width:130vw;
-  height:73vw;
-  min-width:220vh;
-  min-height:120vh;
-
-  transform:translate(-50%,-50%) scale(1.18);
-  border:0;
-  pointer-events:none;
-}
-
-/* 黑色遮罩 */
 .hero-overlay{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      to right,
-      rgba(0,0,0,.9) 0%,
-      rgba(0,0,0,.72) 38%,
-      rgba(0,0,0,.28) 72%,
-      rgba(0,0,0,.55) 100%
-    );
+  min-height: 70vh; /* 跟 hero 一樣高 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.7)); /* 深色遮罩 */
+  display: flex; /* 使用 flex */
+  align-items: center; /* 垂直置中 */
 }
 
-/* 文字內容 */
 .hero-content{
-  position:relative;
-  z-index:2;
-  width:min(90vw,1180px);
-  margin:auto;
+  width: min(90vw, 1100px); /* 內容寬度 */
+  margin: 0 auto; /* 置中 */
 }
 
 .hero-subtitle{
-  letter-spacing:.2em;
-  opacity:.7;
-  margin-bottom:14px;
+  color: rgba(255,255,255,0.7); /* 小標顏色淡一點 */
+  letter-spacing: 0.2em; /* 字距拉開 */
+  margin-bottom: 12px; /* 和標題距離 */
 }
 
-.hero h1{
-  font-size:clamp(48px,7vw,86px);
-  margin-bottom:20px;
-  line-height:1.1;
+.hero-content h1{
+  font-size: clamp(38px, 6vw, 72px); /* 自適應標題大小 */
+  margin-bottom: 18px; /* 下方留白 */
 }
 
 .hero-text{
-  max-width:680px;
-  line-height:1.8;
-  opacity:.82;
+  max-width: 600px; /* 文字不要太長 */
+  line-height: 1.8; /* 行高 */
+  color: rgba(255,255,255,0.82); /* 淡白色 */
 }
 
-
-/* =====================
-   平面作品格子牆
-===================== */
-.graphic-gallery{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:0;
+.works-section{
+  padding: 80px 0; /* 上下留白 */
 }
 
-.gallery-item{
-  aspect-ratio:1/1;
-  overflow:hidden;
-  background:#111;
+.works-grid{
+  width: min(90vw, 1100px); /* 內容寬度 */
+  margin: 0 auto; /* 置中 */
+  display: grid; /* grid 排列 */
+  grid-template-columns: repeat(2, 1fr); /* 一排兩個 */
+  gap: 32px; /* 卡片間距 */
 }
 
-.gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.work-card{
+  background: rgba(255,255,255,0.04); /* 卡片底色 */
+  border: 1px solid rgba(255,255,255,0.08); /* 淡框線 */
+  border-radius: 18px; /* 圓角 */
+  overflow: hidden; /* 讓內容不要超出圓角 */
+  backdrop-filter: blur(6px); /* 微玻璃感 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 動畫 */
 }
 
+.work-card:hover{
+  transform: translateY(-6px); /* 滑過上浮 */
+  box-shadow: 0 14px 30px rgba(0,0,0,0.28); /* 陰影 */
+}
 
-/* =====================
-   平板
-===================== */
-@media(max-width:900px){
-  .graphic-gallery{
-    grid-template-columns:repeat(2,1fr);
+.video-wrap{
+  position: relative; /* 給 iframe 定位用 */
+  width: 100%; /* 滿版 */
+  padding-top: 56.25%; /* 16:9 比例 */
+}
+
+.video-wrap iframe{
+  position: absolute; /* 壓進容器 */
+  top: 0; /* 貼齊上方 */
+  left: 0; /* 貼齊左邊 */
+  width: 100%; /* 撐滿寬 */
+  height: 100%; /* 撐滿高 */
+}
+
+.work-info{
+  padding: 22px; /* 內距 */
+}
+
+.work-info h2{
+  font-size: 22px; /* 標題大小 */
+  margin-bottom: 10px; /* 下方距離 */
+}
+
+.work-info p{
+  color: rgba(255,255,255,0.75); /* 描述文字淡一點 */
+  line-height: 1.8; /* 行高 */
+}
+
+@media (max-width: 900px){
+  .works-grid{
+    grid-template-columns: 1fr; /* 平板以下改成一欄 */
   }
 
   .hero{
-    min-height:500px;
+    background-attachment: scroll; /* 手機和平板避免 fixed 出問題 */
   }
 }
 
-
-/* =====================
-   手機
-===================== */
-@media(max-width:520px){
-  body{
-    padding-top:68px;
-  }
-
+@media (max-width: 520px){
   .nav-list{
-    gap:18px;
+    gap: 18px; /* 手機縮小間距 */
   }
 
-  .hero{
-    height:70vh;
-    min-height:520px;
+  .hero-content h1{
+    font-size: 36px; /* 手機標題不要太大 */
   }
 
-  .hero h1{
-    font-size:46px;
-  }
-
-  .graphic-gallery{
-    grid-template-columns:1fr;
+  .works-section{
+    padding: 56px 0; /* 手機縮小留白 */
   }
 }

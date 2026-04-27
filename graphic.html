@@ -14,180 +14,84 @@
   <link rel="stylesheet" href="css/graphic.css" />
 </head>
 
-<body>
+  <body>
+    <nav class="navbar"> <!-- 導覽列 -->
+      <div class="nav-container"> <!-- 導覽列內容寬度容器 -->
+        <a href="index.html" class="nav-cat-link"> <!-- 點貓回首頁 -->
+          <img src="img/藍貓.gif" alt="走路中的貓" class="nav-cat" /> <!-- 貓咪圖 -->
+        </a>
 
-  <!-- 導覽列 -->
-  <nav class="navbar">
-    <div class="nav-container">
+        <ul class="nav-list"> <!-- 導覽選單 -->
+          <li><a href="index.html">首頁</a></li> <!-- 回首頁 -->
+          <li><a href="resume.html">履歷</a></li> <!-- 履歷頁 -->
+          <li><a href="index.html#project">專案</a></li> <!-- 回首頁專案區 -->
+          <li><a href="contact.html">聯絡我</a></li> <!-- 聯絡頁 -->
+        </ul>
+      </div>
+    </nav>
 
-      <a href="index.html" class="nav-cat-link">
-        <img src="img/藍貓.gif" alt="走路中的貓" class="nav-cat" />
-      </a>
+    <header class="hero"> <!-- 首屏視覺區 -->
+      <div class="hero-overlay"> <!-- 壓在背景上的深色遮罩 -->
+        <div class="hero-content"> <!-- 文字容器 -->
+          <p class="hero-subtitle">Motion Design</p> <!-- 小標 -->
+          <h1>動態視覺建構</h1> <!-- 主標題 -->
+          <p class="hero-text">從平面構圖延伸到立體情境、動畫節奏與視覺敘事。</p> <!-- 說明文字 -->
+        </div>
+      </div>
+    </header>
 
-      <ul class="nav-list">
-        <li><a href="index.html">首頁</a></li>
-        <li><a href="resume.html">履歷</a></li>
-        <li><a href="index.html#project">專案</a></li>
-        <li><a href="contact.html">聯絡我</a></li>
-      </ul>
+    <main class="works-section"> <!-- 作品主區 -->
+      <div class="works-grid"> <!-- 影片卡片排列容器 -->
 
-    </div>
-  </nav>
+        <article class="work-card"> <!-- 第一支影片卡片 -->
+          <div class="video-wrap"> <!-- 讓 iframe 維持比例 -->
+            <iframe
+              src="https://www.youtube.com/embed/影片ID1"
+              title="作品影片1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe> <!-- 嵌入 YouTube 影片 -->
+          </div>
+          <div class="work-info"> <!-- 影片下方說明區 -->
+            <h2>作品名稱 01</h2> <!-- 作品標題 -->
+            <p>這支作品可以寫：主題、用途、使用軟體、動畫方向。</p> <!-- 作品描述 -->
+          </div>
+        </article>
 
+        <article class="work-card"> <!-- 第二支影片卡片 -->
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/影片ID2"
+              title="作品影片2"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="work-info">
+            <h2>作品名稱 02</h2>
+            <p>這裡可以寫這支影片的功能，例如：品牌形象動畫、活動主視覺延伸。</p>
+          </div>
+        </article>
 
-  <!-- 首屏 -->
-  <header class="hero">
+        <article class="work-card"> <!-- 第三支影片卡片 -->
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/影片ID3"
+              title="作品影片3"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="work-info">
+            <h2>作品名稱 03</h2>
+            <p>這裡可以補充：片長、定位、目標受眾、視覺特色。</p>
+          </div>
+        </article>
 
-    <!-- YouTube 背景影片 -->
-    <div class="hero-video">
-      <iframe
-        class="bg-yt"
-        src="https://www.youtube-nocookie.com/embed/eqh6aAHFsnc?autoplay=1&mute=1&loop=1&playlist=eqh6aAHFsnc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1"
-        title="YouTube background video"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <!-- 黑色遮罩 -->
-    <div class="hero-overlay"></div>
-
-    <!-- 文字內容 -->
-    <div class="hero-content">
-      <p class="hero-subtitle">Graphic Design</p>
-
-      <h1>品牌與平面設計</h1>
-
-      <p class="hero-text">
-        以視覺語言整理品牌氣質，將圖像、排版與色彩轉化為具有記憶點的設計作品。
-      </p>
-    </div>
-
-  </header>
-
-
-  <!-- 平面作品格子牆 -->
-  <section class="graphic-gallery">
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1b4hbSZPvnuCbXBuefh9f1hTJka_MvsoT&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1kGBHuF75SQGh7WQF4LgJbTOURDvrHO8Q&sz=w1366"
-        alt="平面設計作品 1"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1mTTdCMHlAiX4bym1BX30sd_qesB3xFyy&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1zpt2LyLRMRfHWgUwAJPbvsam47AU6i_6&sz=w1366"
-        alt="平面設計作品 2"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1auzdB1HENx5hG43NTblEmsR7OmqEXwBH&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=12Y0-h_q4xnIYBD7ggyy08ePziZJmQr2K&sz=w1366"
-        alt="平面設計作品 3"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1hD6n-Qa_i5Onh-uF6c2Wg2UVOI1hE4W6&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1cEE2RMRGcl79OF64nGUZ_q4FvL-Kct9x&sz=w1366"
-        alt="平面設計作品 4"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1Acpx9kYKY-HEDOsxn53ZLEqpokk_ZcZj&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1h6426eVh6id4bAQusFl3Vw03gpgul3ZU&sz=w1366"
-        alt="平面設計作品 5"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1L2a-sWSapQIEda9e81ObQN2qb3bIRXSv&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1G12Us_EkGRneb0SLKQ79KWSSCzHIcL5m&sz=w1366"
-        alt="平面設計作品 6"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1AQR5uSHy-nssad_zMDhDr4JT11F8DflH&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1RhTK5rl6fsEzespUb1hfIdohjFk5kh4P&sz=w1366"
-        alt="平面設計作品 7"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1zpEB8n_lC8QWQh93pjM-5A07oFVEAgnf&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1mj8r3uL9SfvVuBre66lkiUCet4UW3fG2&sz=w1366"
-        alt="平面設計作品 8"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1Ve-x7NrHYK4HV955qw2p4Ag70KuFPex2&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1NGIcnKodsuKPVarPCjf7OTM7DXEBwYMH&sz=w1366"
-        alt="平面設計作品 9"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=17krW0qBA_qxyWAlRTYz-zhxAav962jjz&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1ud89MavIBduHAI4TceAmgMzx7oizlrLy&sz=w1366"
-        alt="平面設計作品 10"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1yFuN9ojnIGZZN7vLw8DEdIyrzDq_FZBh&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1mZ7T2ABcdU2D99sb3FfZK_QJQivXQ9Kr&sz=w1366"
-        alt="平面設計作品 11"
-      />
-    </div>
-
-    <div class="gallery-item">
-      <img
-        src="https://drive.google.com/thumbnail?id=1XVw4n3PqyW_WGBvkDM4TogDB_DsLpujn&sz=w800"
-        data-hover="https://drive.google.com/thumbnail?id=1G-XJ1xUgoh-JUis6yuoxrQrj8MF8LBRz&sz=w1366"
-        alt="平面設計作品 12"
-      />
-    </div>
-
-  </section>
-
-
-  <!-- 滑鼠移入圖片切換 -->
-  <script>
-    const images = document.querySelectorAll(".gallery-item img");
-
-    images.forEach((img) => {
-      const original = img.src;
-      const hover = img.dataset.hover;
-
-      if (!hover) return;
-
-      img.addEventListener("mouseenter", () => {
-        img.src = hover;
-      });
-
-      img.addEventListener("mouseleave", () => {
-        img.src = original;
-      });
-    });
-  </script>
-
-</body>
+      </div>
+    </main>
+  </body>
 </html>
