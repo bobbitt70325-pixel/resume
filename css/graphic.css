@@ -32,10 +32,10 @@ body{
 .nav-container{
   width:min(90vw,1180px);  /* 寬度限制在90%的視口寬度和1180像素之間，保持內容不會過寬 */
   margin:auto;  /* 左右外邊距自動分配，使內容置中 */
-  padding:12px 0;  /* 內邊距上下12像素，左右0像素 */ */
+  padding:12px 0;  /* 內邊距上下12像素，左右0像素 */
 
   display:flex;
-  justify-content:space-between;  /* 水平方向分散對齊，兩端對齊 */ */
+  justify-content:space-between;  /* 水平方向分散對齊，兩端對齊 */
   align-items:center;  /* 垂直居中對齊 */
 }
 
@@ -167,7 +167,7 @@ body{
   }
 
   .hero{
-    min-height:300px;
+    min-height:500px;
   }
 }
 
