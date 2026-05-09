@@ -1,18 +1,18 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"微軟正黑體", sans-serif;
+*{  /* *選擇器，選取網頁中所有HTML的元素 */
+  margin:0;  /* 將所有元素的外邊距設為0，消除瀏覽器預設的邊距 */
+  padding:0;  /* 將所有元素的內邊距設為0，消除瀏覽器預設的內邊距 */
+  box-sizing:border-box;  /* 所有元素都包含，布局更直觀 */
+  font-family:"微軟正黑體", sans-serif;  /* 所有元素的預設字體 */
 }
 
 html{
-  scroll-behavior:smooth;
+  scroll-behavior:smooth;  /* 頁面滾動平滑，點擊連結時頁面平順滾動到目標位置 */
 }
 
 body{
-  background:#000;
-  color:#fff;
-  padding-top:72px;
+  background:#000;  /* 網頁背景顏色 */
+  color:#fff;  /* 網頁文字顏色 */
+  padding-top:72px;  /* 預留導覽列的空間，避免被導覽列遮擋 */
 }
 
 
@@ -20,38 +20,38 @@ body{
    導覽列
 ===================== */
 .navbar{
-  position:fixed;
+  position:fixed;  /* 導覽列固定在最上方 */
   top:0;
   left:0;
   width:100%;
-  z-index:999;
+  z-index:999;  /* 堆疊順序，數字越大越靠上 */
   background:rgba(60,70,85,.78);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);  /* 後方的內容模糊效果，毛玻璃的視覺效果 */
 }
 
 .nav-container{
-  width:min(90vw,1180px);
-  margin:auto;
-  padding:12px 0;
+  width:min(90vw,1180px);  /* 寬度限制在90%的視口寬度和1180像素之間，保持內容不會過寬 */
+  margin:auto;  /* 左右外邊距自動分配，使內容置中 */
+  padding:12px 0;  /* 內邊距上下12像素，左右0像素 */ */
 
   display:flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content:space-between;  /* 水平方向分散對齊，兩端對齊 */ */
+  align-items:center;  /* 垂直居中對齊 */
 }
 
 .nav-cat{
   width:46px;
-  display:block;
+  display:block;  /* 設置成塊級元素，獨佔一行並可設定寬高 */
 }
 
 .nav-list{
-  display:flex;
+  display:flex;  /* 彈性盒子布局，使水平排列的子元素（導覽連結）在同一行內，並且可以使用gap屬性來控制子元素之間的間距。 */
   gap:36px;
-  list-style:none;
+  list-style:none;  /* 移除列表預設的標記，原點或數字 */
 }
 
 .nav-list a{
-  text-decoration:none;
+  text-decoration:none;  /* 移除連結預設的下劃線 */
   color:rgba(255,255,255,.82);
 }
 
@@ -60,19 +60,18 @@ body{
    首屏 Hero
 ===================== */
 .hero{
-  position:relative;
-  height:65vh;
-  min-height:560px;
-  overflow:hidden;
-
+  position:relative;  /* 設定相對定位，使子元素（背景影片和遮罩）可以使用絕對定位相對於這個容器定位*/
+  height:65vh;  /* 高度設定為視窗高度的65%，確保在不同設備上有適當的高度 */
+  min-height:560px;  /* 最小高度設為560像素，確保在較小的視窗上仍然有足夠的高度顯示內容 */
+  overflow:hidden; /* 隱藏超出hero容器範圍的內容，特別是背景影片 */
   display:flex;
-  align-items:center;
+  align-items:center;  /* 垂直居中對齊 */
 }
 
 /* YouTube 背景影片 */
 .hero-video{
-  position:absolute;
-  inset:0;
+  position:absolute;  /* 絕對位置，精準地放在hero容器內，並且不會影響其他內容的布局 */
+  inset:0;  /* top:0;right:0;bottom:0;left:0;的縮寫，讓影片填滿整個hero容器 */
   z-index:0;
   overflow:hidden;
 }
@@ -88,9 +87,9 @@ body{
   min-width:220vh;
   min-height:120vh;
 
-  transform:translate(-50%,-50%) scale(1.18);
-  border:0;
-  pointer-events:none;
+  transform:translate(-50%,-50%) scale(1.18);  /* 變形：先將影片中心點移動到hero容器的中心，再放大影片以確保在不同螢幕尺寸下都能覆蓋整個背景區域。 */
+  border:0;  /* 移除邊框 */
+  pointer-events:none;  /* 禁用滑鼠事件，讓滑鼠穿透影片，點擊事件不會被影片攔截，確保使用者可以正常與頁面上的其他元素互動。 */
 }
 
 /* 黑色遮罩 */
@@ -119,15 +118,15 @@ body{
 }
 
 .hero-subtitle{
-  letter-spacing:.2em;
+  letter-spacing:.2em;  /* 字距為0.2em，增加字母之間的空間。 */
   opacity:.7;
   margin-bottom:14px;
 }
 
 .hero h1{
-  font-size:clamp(48px,7vw,86px);
+  font-size:clamp(48px,7vw,86px);  /* 字體大小響應式屬性，最小為48像素，最大為86像素，根據視口寬度（7vw）自動調整。 */
   margin-bottom:20px;
-  line-height:1.1;
+  line-height:1.1;  /* 行高為1.1，與字體大小相匹配 */
 }
 
 .hero-text{
@@ -140,13 +139,13 @@ body{
    平面作品格子牆
 ===================== */
 .graphic-gallery{
-  display:grid;
+  display:grid;  /* 網格布局 */
   grid-template-columns:repeat(4,1fr);
   gap:0;
 }
 
 .gallery-item{
-  aspect-ratio:1/1;
+  aspect-ratio:1/1;  /* 鎖定寬高的比例 */
   overflow:hidden;
   background:#111;
 }
@@ -168,7 +167,7 @@ body{
   }
 
   .hero{
-    min-height:500px;
+    min-height:300px;
   }
 }
 
