@@ -1,51 +1,125 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>品牌與平面設計</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="css/product.css" />
-  </head>
+  <title>產品設計作品</title>
 
-  <body>
-    <!-- 固定導覽列 -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="index.html" class="nav-cat-link">
-          <img src="img/藍貓.gif" alt="走路中的貓" class="nav-cat" />
+  <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">HAN DESIGN</a>
+
+      <ul class="nav-list">
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="resume.html">履歷</a></li>
+        <li><a href="#" class="active">專案</a></li>
+        <li><a href="contact.html">聯絡我</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <main class="slider-page">
+
+    <button class="arrow arrow-left" id="prevBtn">
+      <span></span>
+    </button>
+
+    <section class="slider-window">
+
+      <div class="slider-track" id="sliderTrack">
+
+        <!-- 假最後一張 -->
+        <a href="foil-pouch.html" class="product-slide">
+          <img src="img/product-pouch.jpg" alt="面膜鋁袋設計">
+
+          <div class="slide-text">
+            <p>FOIL POUCH DESIGN</p>
+            <h2>面膜鋁袋設計</h2>
+          </div>
         </a>
 
-        <ul class="nav-list">
-          <li><a href="index.html">首頁</a></li>
-          <li><a href="resume.html">履歷</a></li>
-          <li><a href="index.html#project">專案</a></li>
-          <li><a href="contact.html">聯絡我</a></li>
-        </ul>
-      </div>
-    </nav>
 
-    <!-- 首屏 -->
-    <header class="hero">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <p class="hero-subtitle">Graphic Design</p>
-          <h1>產品視覺設計</h1>
-          <p class="hero-text">
-            結合品牌定位與視覺策略，打造具辨識度的產品呈現。
-          </p>
+        <!-- 真正第 1 張 -->
+        <a href="cleansing-milk.html" class="product-slide">
+          <img src="img/product-cleansing.jpg" alt="純萃舒敏卸妝乳">
 
-          <div class="fun-alert">
-            <i class="fa-solid fa-fish"></i>
-            <span>金魚游得有點慢，網站還沒長出來。</span>
+          <div class="slide-text">
+            <p>SKINCARE PACKAGE DESIGN</p>
+            <h2>純萃舒敏卸妝乳</h2>
           </div>
-        </div>
+        </a>
+
+
+        <!-- 真正第 2 張 -->
+        <a href="mask-series.html" class="product-slide">
+          <img src="img/product-mask.jpg" alt="PHANES 面膜系列">
+
+          <div class="slide-text">
+            <p>FACE MASK VISUAL DESIGN</p>
+            <h2>PHANES 面膜系列</h2>
+          </div>
+        </a>
+
+
+        <!-- 真正第 3 張 -->
+        <a href="mask-box.html" class="product-slide">
+          <img src="img/product-box.jpg" alt="面膜盒包裝設計">
+
+          <div class="slide-text">
+            <p>PACKAGE MOCKUP DESIGN</p>
+            <h2>面膜盒包裝設計</h2>
+          </div>
+        </a>
+
+
+        <!-- 真正第 4 張 -->
+        <a href="foil-pouch.html" class="product-slide">
+          <img src="img/product-pouch.jpg" alt="面膜鋁袋設計">
+
+          <div class="slide-text">
+            <p>FOIL POUCH DESIGN</p>
+            <h2>面膜鋁袋設計</h2>
+          </div>
+        </a>
+
+
+        <!-- 假第一張 -->
+        <a href="cleansing-milk.html" class="product-slide">
+          <img src="img/product-cleansing.jpg" alt="純萃舒敏卸妝乳">
+
+          <div class="slide-text">
+            <p>SKINCARE PACKAGE DESIGN</p>
+            <h2>純萃舒敏卸妝乳</h2>
+          </div>
+        </a>
+
       </div>
-    </header>
-  </body>
+
+    </section>
+
+    <button class="arrow arrow-right" id="nextBtn">
+      <span></span>
+    </button>
+
+    <div class="page-number">
+      <span id="currentPage">01</span>
+      <span>/</span>
+      <span>04</span>
+    </div>
+
+  </main>
+
+
+  <script src="js/main.js"></script>
+
+</body>
 </html>
