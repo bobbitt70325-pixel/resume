@@ -63,11 +63,11 @@ function initProductSlider() {
 
   if (!slides.length || !nextBtn || !prevBtn) return;
 
-  let currentIndex = 1; // 因為第 0 張是假最後一張，所以真正第 1 張從 index 1 開始
+  let currentIndex = 1;
   let isAnimating = false;
 
   const animationTime = 1000;
-  const realSlideCount = slides.length - 2; // 扣掉假最後、假第一
+  const realSlideCount = slides.length - 2;
 
   function getGap() {
     return window.innerWidth <= 900 ? 42 : 90;
@@ -122,6 +122,15 @@ function initProductSlider() {
     updatePage();
   }
 
+  function resetTransition() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        track.style.transition =
+          `transform ${animationTime}ms cubic-bezier(.76, 0, .24, 1)`;
+      });
+    });
+  }
+
   function nextSlide() {
     if (isAnimating) return;
 
@@ -135,8 +144,10 @@ function initProductSlider() {
 
     setTimeout(() => {
       if (currentIndex === slides.length - 1) {
+        track.style.transition = "none";
         currentIndex = 1;
         moveSlider(false);
+        resetTransition();
       }
 
       track.classList.remove("is-moving");
@@ -161,8 +172,10 @@ function initProductSlider() {
 
     setTimeout(() => {
       if (currentIndex === 0) {
+        track.style.transition = "none";
         currentIndex = slides.length - 2;
         moveSlider(false);
+        resetTransition();
       }
 
       track.classList.remove("is-moving");
@@ -179,9 +192,11 @@ function initProductSlider() {
 
   moveSlider(false);
   setActive();
+  resetTransition();
 
   window.addEventListener("resize", () => {
     moveSlider(false);
+    resetTransition();
   });
 }
 

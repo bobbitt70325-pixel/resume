@@ -36,25 +36,21 @@ body{
 .nav-container{
   width: var(--container-width);
   margin: 0 auto;     /* 置中 */
-  padding:10px 0;
+  padding:20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transform: translateX(var(--container-shift));
 }
 
-.nav-cat-link{
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
+.logo{
+  color:#ffffff;
+  text-decoration:none;
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:.16em;
 }
 
-.nav-cat{
-  width: 50px;
-  height: auto;
-  display: block;
-}
 .nav-list{
   list-style: none;/* 移除點點 */
   display: flex;/* 橫向排列 */
